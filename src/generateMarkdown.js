@@ -1,23 +1,71 @@
-// manager card
-const MC = manager => {
-let managerCard = `
-< div class="card" style = "width: 18rem;" >
-    <div class="card-body">
-        <h5 class="card-title bg-danger">${manager.name}</h5>
+const generateTeam = (teamList) => {
+    const html = [];
+
+    // manager card
+    const MC = manager => {
+        let managerCard = `
+    < div class="card" style = "width: 18rem;" >
+        <div class="card-body">
+            <h5 class="card-title bg-danger">${manager.name}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">ID: ${manager.id}</li>
+            <li class="list-group-item">Email: ${manager.email}</li>
+            <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
+        </ul>
     </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">ID: ${manager.id}</li>
-        <li class="list-group-item">Email: ${manager.email}</li>
-        <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
-    </ul>
-</div>
 `
-html.push(managerCard);
+        html.push(managerCard);
+    }
+    // engineer card
+    const EC = engineer => {
+        let engineerCard = `
+    < div class="card" style = "width: 18rem;" >
+        <div class="card-body">
+            <h5 class="card-title bg-danger">${engineer.name}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">ID: ${engineer.id}</li>
+            <li class="list-group-item">Email: ${engineer.email}</li>
+            <li class="list-group-item">Office Number: ${engineer.github}</li>
+        </ul>
+    </div>
+`
+        html.push(engineerCard);
+    }
+    // intern card
+    const IC = intern => {
+        let internCard = `
+    < div class="card" style = "width: 18rem;" >
+        <div class="card-body">
+            <h5 class="card-title bg-danger">${intern.name}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">ID: ${intern.id}</li>
+            <li class="list-group-item">Email: ${intern.email}</li>
+            <li class="list-group-item">Office Number: ${intern.github}</li>
+        </ul>
+    </div>
+`
+        html.push(internCard);
+    }
+for (let i = 0; i < teamList.length; i++) {
+    if (teamList[i].getRole() === "Manager") {
+        MC(teamList[i]);
+    }
+    if (teamList[i].getRole() === "Engineer") {
+        EC(teamList[i]);
+    }
+    if (teamList[i].getRole() === "Intern") {
+        IC(teamList[i]);
+    }
+}
+return html.join("");
 }
 
 
 // html page syntax
-function generateMarkdown(data) {
+module.exports = teamList => {
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -35,12 +83,12 @@ function generateMarkdown(data) {
             <span class="navbar-brand mb-0 h1">Morgans Team Generator</span>
         </nav>
 
-
+        <section>
+            ${generateTeam(teamList)}
+        </section>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     </body>
     </html>
   `;
 }
-// Module exports
-module.exports = generateMarkdown;

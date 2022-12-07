@@ -1,10 +1,10 @@
 const generateTeam = (teamList) => {
-    const html = [];
+    const page = [];
 
     // manager card
     const MC = manager => {
-        let managerCard = `
-    < div class="card" style = "width: 18rem;" >
+        let managerCard = 
+        `<div class="card" style = "width: 18rem;">
         <div class="card-body">
             <h5 class="card-title bg-danger">${manager.name}</h5>
         </div>
@@ -13,9 +13,8 @@ const generateTeam = (teamList) => {
             <li class="list-group-item">Email: ${manager.email}</li>
             <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
         </ul>
-    </div>
-`
-        html.push(managerCard);
+    </div>`
+        page.push(managerCard);
     }
     // engineer card
     const EC = engineer => {
@@ -31,7 +30,7 @@ const generateTeam = (teamList) => {
         </ul>
     </div>
 `
-        html.push(engineerCard);
+        page.push(engineerCard);
     }
     // intern card
     const IC = intern => {
@@ -47,7 +46,7 @@ const generateTeam = (teamList) => {
         </ul>
     </div>
 `
-        html.push(internCard);
+        page.push(internCard);
     }
 for (let i = 0; i < teamList.length; i++) {
     if (teamList[i].getRole() === "Manager") {
@@ -60,7 +59,7 @@ for (let i = 0; i < teamList.length; i++) {
         IC(teamList[i]);
     }
 }
-return html.join("");
+return page.join("");
 }
 
 
@@ -78,11 +77,11 @@ module.exports = teamList => {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     </head>
     <body>
-    // page header
-        <nav class="navbar navbar-light bg-light">
-            <span class="navbar-brand mb-0 h1">Morgans Team Generator</span>
+        <header>
+        <nav class="navbar navbar-light bg-danger">
+            <span class="navbar-brand mb-0 h1">Team Generator</span>
         </nav>
-
+        </header>
         <section>
             ${generateTeam(teamList)}
         </section>

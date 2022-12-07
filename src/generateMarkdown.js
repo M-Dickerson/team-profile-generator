@@ -1,7 +1,7 @@
 const generateTeam = (teamList) => {
     const page = [];
 
-    // manager card
+// manager card
     const MC = manager => {
         let managerCard = 
         `<div class="card" style = "width: 18rem;">
@@ -10,60 +10,57 @@ const generateTeam = (teamList) => {
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">ID: ${manager.id}</li>
-            <li class="list-group-item">Email: ${manager.email}</li>
+            <li class="list-group-item">Email: <a href="mailto:email@example.com">${manager.email}</a></li>
             <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
         </ul>
     </div>`
         page.push(managerCard);
     }
-    // engineer card
+// engineer card
     const EC = engineer => {
-        let engineerCard = `
-    < div class="card" style = "width: 18rem;" >
+        let engineerCard = 
+        `<div class="card" style = "width: 18rem;">
         <div class="card-body">
             <h5 class="card-title bg-danger">${engineer.name}</h5>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">ID: ${engineer.id}</li>
-            <li class="list-group-item">Email: ${engineer.email}</li>
-            <li class="list-group-item">Office Number: ${engineer.github}</li>
+            <li class="list-group-item">Email: <a href="mailto:email@example.com">${engineer.email}</a></li>
+            <li class="list-group-item">GitHub: <a href="https://www.github.com/"${engineer.github}></a>${engineer.github}</li>
         </ul>
-    </div>
-`
+    </div>`
         page.push(engineerCard);
     }
-    // intern card
+// intern card
     const IC = intern => {
-        let internCard = `
-    < div class="card" style = "width: 18rem;" >
+        let internCard =
+        `<div class="card" style = "width: 18rem;">
         <div class="card-body">
             <h5 class="card-title bg-danger">${intern.name}</h5>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">ID: ${intern.id}</li>
-            <li class="list-group-item">Email: ${intern.email}</li>
-            <li class="list-group-item">Office Number: ${intern.github}</li>
+            <li class="list-group-item">Email: <a href="mailto:email@example.com">${intern.email}</a></li>
+            <li class="list-group-item">School: ${intern.school}</li>
         </ul>
-    </div>
-`
+    </div>`
         page.push(internCard);
     }
-for (let i = 0; i < teamList.length; i++) {
-    if (teamList[i].getRole() === "Manager") {
+// allows every card generated to be appended to the page
+    for (let i = 0; i < teamList.length; i++) {
+        if (teamList[i].getRole() === "Manager") {
         MC(teamList[i]);
     }
-    if (teamList[i].getRole() === "Engineer") {
+        if (teamList[i].getRole() === "Engineer") {
         EC(teamList[i]);
     }
-    if (teamList[i].getRole() === "Intern") {
+        if (teamList[i].getRole() === "Intern") {
         IC(teamList[i]);
     }
 }
 return page.join("");
 }
-
-
-// html page syntax
+//appends the cards to the page
 module.exports = teamList => {
     return `
     <!DOCTYPE html>
@@ -82,7 +79,7 @@ module.exports = teamList => {
             <span class="navbar-brand mb-0 h1">Team Generator</span>
         </nav>
         </header>
-        <section>
+        <section class="cards">
             ${generateTeam(teamList)}
         </section>
 

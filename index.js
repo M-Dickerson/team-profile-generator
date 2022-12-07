@@ -2,13 +2,13 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 const generateMarkdown = require("./src/generateMarkdown");
-// links for lib pages
+// links for lib pages and blank array for data
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 const team = [];
 
-// questions for selector
+// allows the user to add more team members
 const Selection = () => {
 return inquirer.prompt ([
 {   type: "list",
@@ -18,15 +18,15 @@ return inquirer.prompt ([
 }])
 .then(choice => {
     switch (choice.selection) {
-        // brings up engineer questions
+    // brings up engineer questions
         case "Engineer":
         engineerQuestions();
         break;
-        // brings up intern questions
+    // brings up intern questions
         case "Intern":
         internQuestions();
         break;
-        // generates team if the user is done
+    // generates team if the user is done
         case "No, not at this time":
         generate();
     }
@@ -119,7 +119,7 @@ return inquirer.prompt ([
     team.push(intern);
     Selection();
 })}
-
+// generates html file
 const generate = () => {
     console.log(team);
     fs.writeFile ("./dist/index.html", generateMarkdown(team), (err) =>

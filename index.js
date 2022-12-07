@@ -41,13 +41,13 @@ return inquirer.prompt ([
 },
 {
     type: "input",
-    message: "What's the managers email address?",
-    name: "email",
+    message: "What's the managers ID?",
+    name: "id",
 },
 {
     type: "input",
-    message: "What's the managers ID?",
-    name: "id",
+    message: "What's the managers email address?",
+    name: "email",
 },
 {
     type: "input",
@@ -70,13 +70,13 @@ return inquirer.prompt ([
     },
     {
         type: "input",
-        message: "What's the engineers email address?",
-        name: "email",
+        message: "What's the engineers ID?",
+        name: "id",
     },
     {
         type: "input",
-        message: "What's the engineers ID?",
-        name: "id",
+        message: "What's the engineers email address?",
+        name: "email",
     },
     {
         type: "input",
@@ -99,13 +99,13 @@ return inquirer.prompt ([
     },
     {
         type: "input",
-        message: "What's the interns email address?",
-        name: "email",
+        message: "What's the interns ID?",
+        name: "id",
     },
     {
         type: "input",
-        message: "What's the interns ID?",
-        name: "id",
+        message: "What's the interns email address?",
+        name: "email",
     },
     {
         type: "input",

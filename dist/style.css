@@ -1,7 +1,8 @@
-.navbar {
-    text-align: center;
-    padding: 10%;
+.navbar-brand {
+    padding: 1%;
 }
-.cards {
+.card-deck {
     display: flex;
+    justify-content: space-around;
+    margin-top: 2%;
 }

@@ -5,8 +5,9 @@ const generateTeam = (teamList) => {
     const MC = manager => {
         let managerCard = 
         `<div class="card" style = "width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title bg-danger">${manager.name}</h5>
+        <div class="card-body bg-danger">
+            <h5 class="card-title">${manager.name}</h5>
+            <p><i class="fa-solid fa-user-plus"></i></i> Manager</p>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">ID: ${manager.id}</li>
@@ -20,13 +21,14 @@ const generateTeam = (teamList) => {
     const EC = engineer => {
         let engineerCard = 
         `<div class="card" style = "width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title bg-danger">${engineer.name}</h5>
+        <div class="card-body bg-danger">
+            <h5 class="card-title">${engineer.name}</h5>
+            <p><i class="fa-solid fa-user-plus"></i></i> Engineer</p>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">ID: ${engineer.id}</li>
             <li class="list-group-item">Email: <a href="mailto:email@example.com">${engineer.email}</a></li>
-            <li class="list-group-item">GitHub: <a href="https://www.github.com/"${engineer.github}></a>${engineer.github}</li>
+            <li class="list-group-item">GitHub: <a href="https://www.github.com/"${engineer.github}>${engineer.github}</a></li>
         </ul>
     </div>`
         page.push(engineerCard);
@@ -35,8 +37,9 @@ const generateTeam = (teamList) => {
     const IC = intern => {
         let internCard =
         `<div class="card" style = "width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title bg-danger">${intern.name}</h5>
+        <div class="card-body bg-danger">
+            <h5 class="card-title">${intern.name}</h5>
+            <p><i class="fa-solid fa-user-plus"></i></i> Intern</p>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">ID: ${intern.id}</li>
@@ -72,6 +75,10 @@ module.exports = teamList => {
         <title>My Team Generator</title>
         <!-- bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <!-- font awesome -->
+        <script src="https://kit.fontawesome.com/33f6c54f55.js" crossorigin="anonymous"></script>
+        <!-- css -->
+        <link rel="stylesheet" type="text/css" href="./style.css"/>
     </head>
     <body>
         <header>
@@ -79,7 +86,7 @@ module.exports = teamList => {
             <span class="navbar-brand mb-0 h1">Team Generator</span>
         </nav>
         </header>
-        <section class="cards">
+        <section class="card-deck">
             ${generateTeam(teamList)}
         </section>
 

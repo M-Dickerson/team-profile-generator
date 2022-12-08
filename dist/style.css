@@ -1,8 +1,41 @@
-.navbar-brand {
+* {
+    font-family: 'Quicksand', sans-serif;
+}
+/* page styling */
+body {
+    background-color: #e8ecf2;
+}
+/* navbar styling */
+.navbar {
+    display: flex;
+    justify-content: center;
     padding: 1%;
+    background-color: #1d252b!important;
+}
+.navbar-brand {
+    color: #fbfcfc;
+    font-size: xx-large;
+}
+/* card styling */
+.card {
+    font-size: x-large;
 }
 .card-deck {
     display: flex;
     justify-content: space-around;
     margin-top: 2%;
+}
+.card-body {
+    color: #fbfcfc;
+    background-color: #4e5f6e!important;
+}
+.list-group-item {
+    border: none;
+}
+h5 {
+    padding-bottom: 10%;
+    font-size: x-large;
+}
+p {
+    margin-bottom: 0%;
 }

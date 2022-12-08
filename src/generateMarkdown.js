@@ -5,9 +5,9 @@ const generateTeam = (teamList) => {
     const MC = manager => {
         let managerCard = 
         `<div class="card" style = "width: 18rem;">
-        <div class="card-body bg-danger">
+        <div class="card-body">
             <h5 class="card-title">${manager.name}</h5>
-            <p><i class="fa-solid fa-user-plus"></i></i> Manager</p>
+            <p><i class="fa-solid fa-user-pen"></i> Manager</p>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">ID: ${manager.id}</li>
@@ -21,9 +21,9 @@ const generateTeam = (teamList) => {
     const EC = engineer => {
         let engineerCard = 
         `<div class="card" style = "width: 18rem;">
-        <div class="card-body bg-danger">
+        <div class="card-body">
             <h5 class="card-title">${engineer.name}</h5>
-            <p><i class="fa-solid fa-user-plus"></i></i> Engineer</p>
+            <p><i class="fa-solid fa-user-gear"></i> Engineer</p>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">ID: ${engineer.id}</li>
@@ -37,9 +37,9 @@ const generateTeam = (teamList) => {
     const IC = intern => {
         let internCard =
         `<div class="card" style = "width: 18rem;">
-        <div class="card-body bg-danger">
+        <div class="card-body">
             <h5 class="card-title">${intern.name}</h5>
-            <p><i class="fa-solid fa-user-plus"></i></i> Intern</p>
+            <p><i class="fa-solid fa-user-graduate"></i> Intern</p>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">ID: ${intern.id}</li>
@@ -77,12 +77,15 @@ module.exports = teamList => {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <!-- font awesome -->
         <script src="https://kit.fontawesome.com/33f6c54f55.js" crossorigin="anonymous"></script>
+        <!-- google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+        <style> @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap'); </style>
         <!-- css -->
         <link rel="stylesheet" type="text/css" href="./style.css"/>
     </head>
     <body>
         <header>
-        <nav class="navbar navbar-light bg-danger">
+        <nav class="navbar navbar-light">
             <span class="navbar-brand mb-0 h1">Team Generator</span>
         </nav>
         </header>

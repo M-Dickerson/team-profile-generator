@@ -1,13 +1,5 @@
 // using Employee constructor 
 const Employee = require("../lib/employee.js");
-// creates employee object 
-test('creates an employee object', () => {
-    const employee = new Employee("Morgan", 20, "Dickerson.Morgan@outlook.com");
-
-    expect(employee.name).toEqual(expect.any(String));
-    expect(employee.id).toEqual(expect.any(Number));
-    expect(employee.email).toEqual(expect.any(String));
-});
 // gets name from getName() 
 test('gets employee name', () => {
     const employee = new Employee("Morgan", 20, "Dickerson.Morgan@outlook.com");
